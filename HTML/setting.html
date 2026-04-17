@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+
+    <link rel="stylesheet" href="/CSS/setting.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="builder-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img src="/IMAGES/resumelogo.png" alt="Logo">
+            </div>
+
+            <ul class="sidebar-menu">
+
+                <li onclick="window.location.href='/builder'">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Build Resume</span>
+                </li>
+
+                <li onclick="window.location.href='/analyzer'">
+                    <i class="fa-solid fa-upload"></i>
+                    <span>Analyze Resume</span>
+                </li>
+
+                <li onclick="window.location.href='/jobmatch'">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Job Match</span>
+                </li>
+
+                <li onclick="window.location.href='/logout'">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </li>
+
+                <li class="active">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+
+                <li onclick="window.location.href='/'">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back</span>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="user-info">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="welcomeUser">Welcome, User</span>
+                </div>
+            </div>
+
+            <!-- Settings Card -->
+            <div class="settings-wrapper">
+                <div class="settings-card">
+
+                    <h1>Appearance Settings</h1>
+
+                    <div class="theme-row">
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider"></span>
+                        </label>
+
+                        <span class="theme-text" id="themeText">Light Mode</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        // USER NAME
+        fetch('/get-user-name')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('welcomeUser').innerText = `Welcome, ${data.name}`;
+            })
+            .catch(() => {
+                document.getElementById('welcomeUser').innerText = 'Welcome, User';
+            });
+
+        const toggle = document.getElementById("themeToggle");
+        const themeText = document.getElementById("themeText");
+
+        function applyTheme(mode) {
+            if (mode === "dark") {
+                document.body.classList.add("dark-mode");
+                toggle.checked = true;
+                themeText.innerText = "Dark Mode";
+            } else {
+                document.body.classList.remove("dark-mode");
+                toggle.checked = false;
+                themeText.innerText = "Light Mode";
+            }
+        }
+
+        // Load saved theme
+        window.onload = function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            applyTheme(savedTheme);
+        };
+
+        // Toggle theme
+        toggle.addEventListener("change", function () {
+            if (toggle.checked) {
+                localStorage.setItem("theme", "dark");
+                applyTheme("dark");
+            } else {
+                localStorage.setItem("theme", "light");
+                applyTheme("light");
+            }
+        });
+    </script>
+
+</body>
+</html>

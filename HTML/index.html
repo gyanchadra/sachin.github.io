@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+
+    <!-- Left Logo -->
+   <div class="logo">
+
+    <img src="/IMAGES/resumelogo.png" alt="Logo" class="logo-img">
+
+</div>
+
+    <!-- Right Side Menu -->
+    <div class="nav-right">
+
+        <a href="/login-page" class="nav-btn login-btn"> LOG IN </a>
+
+        <a href="/login-page" class="nav-btn signup-btn"> SIGN UP </a>
+
+        
+       <!-- <div class="menu-icon">
+            ☰
+        </div> -->
+
+        <div class="menu-icon" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars" id="menuIcon"></i>
+    </div>
+
+    </div>
+
+</nav>
+
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+
+  <div class="close-btn" onclick="toggleMenu()">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+
+  <a href="/">
+    <i class="fa-solid fa-house"></i> Home
+  </a>
+
+  <a href="/about">
+    <i class="fa-solid fa-user"></i> About
+  </a>
+
+  <a href="/contact">
+    <i class="fa-solid fa-envelope"></i> Contact
+  </a>
+
+  <a href="/login-page" class="mobile-login">
+    <i class="fa-solid fa-right-to-bracket"></i> Log In
+  </a>
+
+  <a href="/login-page" class="mobile-signup">
+    <i class="fa-solid fa-user-plus"></i> Sign Up
+  </a>
+
+</div>
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h4>
+            AI RESUME ANALYZER
+        </h4>
+
+        <h1>
+            Use Our Free Resume Builder & Analyzer, <h1 class="demo">Get Hired Faster.</h1>
+        </h1>
+        <h4>
+            Create professional resumes and analyze using ATS-based AI to get scores, skill suggestions, and improvement tips.
+        </h4>
+        <div class="hero-buttons">
+
+            <a href="/login-page" class="btn btn-primary">
+                CREATE RESUME
+            </a>
+
+            <a href="/login-page" class="btn btn-secondary">
+                ANALYZE RESUME
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="hero-image-section">
+
+    <img src="/IMAGES/mainui.jpeg" alt="hero">
+
+</section>
+
+<!-- Company Logo Section -->
+
+<section class="company">
+
+  <div class="company-section">
+
+    <h4 class="company-title">
+      Our Users Have Been Hired by Top Companies
+    </h4>
+
+    <div class="logo-slider">
+
+      <div class="logo-track">
+
+       
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg" alt="Infosys">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" alt="Wipro">
+        <img src="https://cdn.simpleicons.org/cisco" alt="Cisco">
+        <img src="https://cdn.simpleicons.org/dell" alt="Dell Technologies">
+        <img src="https://cdn.simpleicons.org/sap" alt="SAP">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/accenture.svg" alt="Accenture">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hcl.svg" alt="HCL">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nvidia.svg" alt="NVIDIA">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/intel.svg" alt="Intel">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/samsung.svg" alt="Samsung">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vmware.svg" alt="VMware">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/paypal.svg" alt="PayPal">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/meta.svg" alt="Meta">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/netflix.svg" alt="Netflix">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/spotify.svg" alt="Spotify">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg" alt="X">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/uber.svg" alt="Uber">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/airbnb.svg" alt="Airbnb">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dropbox.svg" alt="Dropbox">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/shopify.svg" alt="Shopify">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/snapchat.svg" alt="Snapchat">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/zoom.svg" alt="Zoom">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pinterest.svg" alt="Pinterest">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/atlassian.svg" alt="Atlassian">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg" alt="Discord">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/figma.svg" alt="Figma">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/reddit.svg" alt="Reddit">
+
+        <!-- 🔁 duplicate for smooth loop -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg" alt="Infosys">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg" alt="Wipro">
+        <img src="https://cdn.simpleicons.org/cisco" alt="Cisco">
+        <img src="https://cdn.simpleicons.org/dell" alt="Dell Technologies">
+        <img src="https://cdn.simpleicons.org/sap" alt="SAP">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/accenture.svg" alt="Accenture">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hcl.svg" alt="HCL">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nvidia.svg" alt="NVIDIA">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/intel.svg" alt="Intel">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/samsung.svg" alt="Samsung">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vmware.svg" alt="VMware">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/meta.svg" alt="Meta">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/netflix.svg" alt="Netflix">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/spotify.svg" alt="Spotify">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg" alt="X">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/uber.svg" alt="Uber">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/airbnb.svg" alt="Airbnb">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dropbox.svg" alt="Dropbox">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/shopify.svg" alt="Shopify">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/snapchat.svg" alt="Snapchat">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/zoom.svg" alt="Zoom">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pinterest.svg" alt="Pinterest">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/atlassian.svg" alt="Atlassian">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg" alt="Discord">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/figma.svg" alt="Figma">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/reddit.svg" alt="Reddit">
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="features">
+
+    <h2 class="features-title">
+        Powerful Features to Boost Your Resume
+    </h2>
+
+    <div class="features-container">
+
+        <!-- Feature 1 -->
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            <h3>Resume Builder</h3>
+
+            <p>
+                Create professional resumes easily using our smart and simple resume builder.
+            </p>
+
+        </div>
+
+        <!-- Feature 2 -->
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+            <h3>ATS Analyzer</h3>
+
+            <p>
+                Analyze resumes using ATS standards and get detailed insights instantly.
+            </p>
+
+        </div>
+
+        <!-- Feature 3 -->
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <h3>Skill Suggestions</h3>
+
+            <p>
+                Get recommended skills based on your resume and target job profile.
+            </p>
+
+        </div>
+
+        <!-- Feature 4 -->
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h3>Score Prediction</h3>
+
+            <p>
+                Predict ATS scores and improve your chances of getting shortlisted.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Resume Builder Section -->
+
+<section class="resume-section">
+
+    <div class="resume-container">
+
+        <!-- Left Image -->
+
+        <div class="resume-image">
+
+            <img src="/IMAGES/builder.jpeg" alt="Resume Builder">
+
+
+        </div>
+
+        <!-- Right Content -->
+
+        <div class="resume-content">
+
+            <h2>
+                Build Professional Resumes with Ease
+            </h2>
+
+            <p>
+                Our AI-powered Resume Builder helps you create professional
+                resumes quickly and efficiently. Fill in your details,
+                choose your skills, and generate a polished resume ready
+                for job applications.
+            </p>
+
+            <ul>
+
+                <li> Easy-to-use Resume Builder</li>
+
+                <li> Professional Resume Templates</li>
+
+                <li> Real-time Resume Preview</li>
+
+                <li> Download Resume in PDF Format</li>
+
+            </ul>
+
+            <a href="/login-page" class="resume-btn">
+                Build Your Resume
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Resume Analyzer Section -->
+
+<section class="analyzer-section">
+
+    <div class="analyzer-container">
+
+        <!-- Left Content -->
+
+        <div class="analyzer-content">
+
+            <h2>
+                Analyze Your Resume & Predict ATS Score
+            </h2>
+
+            <p>
+                Upload your resume and get instant analysis based on ATS
+                (Applicant Tracking System) standards. Our system evaluates
+                your resume structure, keywords, and skills to predict
+                your chances of selection.
+            </p>
+
+            <ul>
+
+                <li> ATS-based Resume Analysis</li>
+
+                <li> Resume Score Prediction</li>
+
+                <li> Category Detection (Fresher / Experienced)</li>
+
+                <li> Smart Skill Recommendations</li>
+
+            </ul>
+
+            <a href="/login-page" class="analyzer-btn">
+                Analyze Your Resume
+            </a>
+
+        </div>
+
+        <!-- Right Image -->
+
+        <div class="analyzer-image">
+
+            <img src="/IMAGES/analyzer.jpeg" alt="Resume Analyzer">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer Section -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Column 1 -->
+
+        <div class="footer-col">
+
+            <h2 class="footer-logo">
+                AI Resume Analyzer
+            </h2>
+
+            <p>
+                Build professional resumes and analyze them
+                using AI-powered ATS technology to improve
+                your job selection chances.
+            </p>
+
+        </div>
+
+        <!-- Column 2 -->
+
+        <div class="footer-col">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#">Features</a></li>
+
+                <li><a href="#">About</a></li>
+
+                <li><a href="#">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Column 3 -->
+
+        <div class="footer-col">
+
+            <h3>Features</h3>
+
+            <ul>
+
+                <li><a href="#">Resume Builder</a></li>
+
+                <li><a href="#">ATS Analyzer</a></li>
+
+                <li><a href="#">Score Prediction</a></li>
+
+                <li><a href="#">Skill Suggestions</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Column 4 -->
+
+        <div class="footer-col">
+
+            <h3>Contact</h3>
+
+            <ul>
+
+                <li>Email: airesumeanalyzer@email.com</li>
+
+                <li>Phone: +91 9876543210</li>
+
+                <li>Location: India</li>
+
+            </ul>
+
+            <!-- Social Icons -->
+
+            <div class="social-icons">
+
+                <i class="fa-brands fa-facebook"></i>
+
+                <i class="fa-brands fa-linkedin"></i>
+
+                <i class="fa-brands fa-github"></i>
+
+                <i class="fa-brands fa-twitter"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 AI Resume Analyzer | All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- Navbar Start -->
+
+
+
+</body>
+
+<script src="/JS/index.js"></script>
+</html>

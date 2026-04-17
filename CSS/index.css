@@ -1,0 +1,1125 @@
+/* ===== Common CSS ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+/* ===== Navbar ===== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;   
+    padding: 0 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;   /* ⭐ MOST IMPORTANT */
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+/* ===== Logo ===== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;   /* logo shrink nahi hoga */
+}
+
+/* ===== Logo Image ===== */
+
+.logo-img {
+    height: 110px;   /* Logo always 120px */
+    width: auto;
+    object-fit: contain;
+}
+
+/* ===== Right Side ===== */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===== Buttons ===== */
+
+.nav-btn {
+    text-decoration: none;
+
+    padding: 7px 16px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+/* Login Button */
+
+.login-btn {
+   
+    color: #0066ff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Signup Button */
+
+.signup-btn {
+    background-color: #0066ff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Hover */
+
+.nav-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* ===== Three Line Menu ===== */
+
+.menu-icon {
+    font-size: 32px;
+    cursor: pointer;
+
+    /* ⭐ FIX ALIGNMENT */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+}
+
+.menu-icon:hover {
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1500;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== SIDE MENU ===== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: 0.3s ease;
+    z-index: 2000;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+/* ===== CLOSE BUTTON ===== */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    font-size: 28px;   /* ⭐ BIG FIX */
+    cursor: pointer;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: red;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transform: rotate(90deg);
+}
+
+/* ===== MENU LINKS ===== */
+.side-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+/* HOVER EFFECT */
+.side-menu a:hover {
+    background: #f2f2f2;
+    transform: translateX(5px);
+}
+
+/* ICON SPACING */
+.side-menu i {
+    margin-right: 10px;
+}
+
+/* ===== LOGIN / SIGNUP INSIDE MENU ===== */
+.mobile-login {
+    color: green;
+    font-weight: bold;
+}
+
+.mobile-signup {
+    color: blue;
+    font-weight: bold;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .nav-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 15px;
+    }
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    /* Hide Login Signup */
+
+    .nav-btn {
+        display: none;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+}
+
+
+
+/* Hero Section */
+
+.hero {
+
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+
+}
+
+/* Hero Content */
+
+.hero-content h1 {
+
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+}
+
+.hero-content p {
+
+    font-size: 18px;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    margin-bottom: 30px;
+
+}
+
+.hero-content h4{
+    color: #0066ff;
+}
+
+.hero-content h1 .demo{
+    color: #0066ff;
+}
+/* Buttons */
+
+.hero-buttons {
+
+    margin-top: 20px;
+
+}
+
+.btn {
+
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin: 10px;
+    display: inline-block;
+}
+
+/* Primary Button */
+
+.btn-primary {
+
+
+    color: #0d6efd;
+    border: 1px solid #0066ff;
+    font-weight: bold;
+
+}
+
+/* Secondary Button */
+
+.btn-secondary {
+
+    background-color: #0066ff;
+    border: 2px solid white;
+    font-weight: bold;
+    color: white;
+
+}
+
+/* Hover Effects */
+
+.btn:hover {
+
+    opacity: 0.9;
+
+}
+
+.hero-image-section {
+
+    display: flex;
+
+    justify-content: center;   /* horizontal center */
+
+    align-items: center;       /* vertical center */
+
+    padding: 40px 0;
+
+}
+
+/* Image Style */
+
+.hero-image-section img {
+
+    max-width: 100%;   /* responsive */
+
+    height: auto;
+
+    border-radius: 12px;
+
+     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+
+}
+
+/* Stop horizontal overflow */
+
+body {
+
+    margin: 0;
+    overflow-x: hidden;
+
+}
+
+/* Section */
+
+/* Stop horizontal scroll */
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+/* =========================
+   Company Logo Section
+========================= */
+
+.company {
+
+    width: 100%;
+
+    margin-top: 80px;
+
+}
+
+/* Section Box */
+
+.company-section {
+
+    background: white;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+}
+
+/* Title */
+
+.company-title {
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    margin-bottom: 50px;
+
+}
+
+/* Slider */
+
+.logo-slider {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+/* Left Fade Effect */
+
+.logo-slider::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100px;
+
+    height: 100%;
+
+    background: linear-gradient(
+        to right,
+        white,
+        transparent
+    );
+
+    z-index: 2;
+
+}
+
+/* Right Fade Effect */
+
+.logo-slider::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 100px;
+
+    height: 100%;
+
+    background: linear-gradient(
+        to left,
+        white,
+        transparent
+    );
+
+    z-index: 2;
+
+}
+
+/* Track */
+
+.logo-track {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+    width: max-content;
+
+    animation: scroll 18s linear infinite;
+
+}
+
+/* Logo Images */
+
+.logo-track img {
+
+    height: 50px;
+
+    width: auto;
+
+    object-fit: contain;
+
+}
+
+/* Animation */
+
+@keyframes scroll {
+
+    0% {
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        transform: translateX(-33.33%);
+
+    }
+
+}
+
+/* Hover Pause (Professional Effect) */
+
+.logo-slider:hover .logo-track {
+
+    animation-play-state: paused;
+
+}
+/* Features Section */
+
+.features {
+
+    padding: 80px 20px;
+
+    background: #f8f9fa;
+
+    text-align: center;
+
+}
+
+/* Title */
+
+.features-title {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 50px;
+
+}
+
+/* Container */
+
+.features-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+/* Card */
+
+.feature-card {
+
+    background: white;
+
+    padding: 30px 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+
+}
+
+/* Icon */
+
+.feature-card i {
+
+    font-size: 40px;
+
+    color: #0d6efd;
+
+    margin-bottom: 20px;
+
+}
+
+/* Title */
+
+.feature-card h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+
+}
+
+/* Text */
+
+.feature-card p {
+
+    font-size: 15px;
+
+    color: #555;
+
+}
+
+/* Hover Effect */
+
+.feature-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+
+.features-container {
+
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+.features-container {
+
+    grid-template-columns: 1fr;
+
+}
+
+}
+
+/* =========================
+   Resume Builder Section
+========================= */
+
+.resume-section {
+
+    width: 100%;
+
+    padding: 80px 20px;
+
+    background: #f8f9fa;
+
+}
+
+/* Container */
+
+.resume-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+}
+
+/* Left Image */
+
+.resume-image {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.resume-image img {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    height: auto;
+
+}
+
+/* Right Content */
+
+.resume-content {
+
+    flex: 1;
+
+}
+
+/* Title */
+
+.resume-content h2 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+}
+
+/* Paragraph */
+
+.resume-content p {
+
+    font-size: 16px;
+
+    color: #555;
+
+    margin-bottom: 20px;
+
+}
+
+/* List */
+
+.resume-content ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin-bottom: 25px;
+
+}
+
+.resume-content ul li {
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+
+}
+
+/* Button */
+
+.resume-btn {
+
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background: #0d6efd;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+}
+
+.resume-btn:hover {
+
+    background: #0b5ed7;
+
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+.resume-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+}
+
+.resume-image img {
+
+    max-width: 350px;
+
+}
+
+}
+
+/* =========================
+   Resume Analyzer Section
+========================= */
+
+.analyzer-section {
+
+    width: 100%;
+
+    padding: 80px 20px;
+
+    background: white;
+
+}
+
+/* Container */
+
+.analyzer-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+}
+
+/* Left Content */
+
+.analyzer-content {
+
+    flex: 1;
+
+}
+
+/* Title */
+
+.analyzer-content h2 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+}
+
+/* Paragraph */
+
+.analyzer-content p {
+
+    font-size: 16px;
+
+    color: #555;
+
+    margin-bottom: 20px;
+
+}
+
+/* List */
+
+.analyzer-content ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin-bottom: 25px;
+
+}
+
+.analyzer-content ul li {
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+
+}
+
+/* Button */
+
+.analyzer-btn {
+
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background: #0d6efd;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+}
+
+.analyzer-btn:hover {
+
+    background: #0b5ed7;
+
+}
+
+/* Right Image */
+
+.analyzer-image {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.analyzer-image img {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    height: auto;
+
+}
+
+@media (max-width: 900px) {
+
+.analyzer-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+}
+
+.analyzer-image img {
+
+    max-width: 350px;
+
+}
+
+}
+
+.resume-image img,
+.analyzer-image img {
+
+    border-radius: 12px;   /* rounded corners */
+
+}
+
+/* =========================
+   Footer Section
+========================= */
+
+.footer {
+
+    background: #111;
+
+    color: white;
+
+    padding-top: 60px;
+
+}
+
+/* Container */
+
+.footer-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 40px;
+
+    padding: 0 20px;
+
+}
+
+/* Logo */
+
+.footer-logo {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+}
+
+/* Text */
+
+.footer-col p {
+
+    color: #bbb;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+/* Headings */
+
+.footer-col h3 {
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+
+}
+
+/* List */
+
+.footer-col ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+.footer-col ul li {
+
+    margin-bottom: 10px;
+
+}
+
+/* Links */
+
+.footer-col ul li a {
+
+    color: #bbb;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+.footer-col ul li a:hover {
+
+    color: white;
+
+}
+
+/* Social Icons */
+
+.social-icons {
+
+    margin-top: 15px;
+
+}
+
+.social-icons i {
+
+    font-size: 18px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.social-icons i:hover {
+
+    color: #0d6efd;
+
+}
+
+/* Bottom Footer */
+
+.footer-bottom {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+    padding: 15px 0;
+
+    border-top: 1px solid #333;
+
+}
+
+.footer-bottom p {
+
+    font-size: 14px;
+
+    color: #aaa;
+
+}
+

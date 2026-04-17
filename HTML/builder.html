@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+
+    <link rel="stylesheet" href="/CSS/builder.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="builder-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img src="/IMAGES/resumelogo.png" alt="Logo">
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Build Resume</span>
+                </li>
+
+                <li onclick="window.location.href='/analyzer'">
+                    <i class="fa-solid fa-upload"></i>
+                    <span>Analyze Resume</span>
+                </li>
+
+                <li onclick="window.location.href='/jobmatch'">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Job Match</span>
+                </li>
+
+                <li onclick="window.location.href='/logout'">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </li>
+
+                <li onclick="window.location.href='/setting'">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+
+                <li onclick="window.location.href='/'">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back</span>
+                </li>
+            </ul>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <div class="top-bar">
+                <div class="user-info">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="welcomeUser">Welcome, User</span>
+                </div>
+            </div>
+
+            <div class="content-header">
+                <h1>Choose Your Resume Template</h1>
+                <p>Select any card to continue building your professional resume.</p>
+            </div>
+
+            <div class="template-grid">
+
+    <div class="template-card" onclick="openTemplate('template1')">
+        <img src="/IMAGES/template1.jpeg" alt="Template 1">
+    </div>
+
+    <div class="template-card" onclick="openTemplate('template2')">
+        <img src="/IMAGES/template2.jpeg" alt="Template 2">
+    </div>
+
+    <div class="template-card" onclick="openTemplate('template3')">
+        <img src="/IMAGES/template3.jpeg" alt="Template 3">
+    </div>
+
+    <div class="template-card" onclick="openTemplate('template1')">
+        <img src="/IMAGES/template1.jpeg" alt="Template 4">
+    </div>
+
+    <div class="template-card" onclick="openTemplate('template2')">
+        <img src="/IMAGES/template2.jpeg" alt="Template 5">
+    </div>
+
+    <div class="template-card" onclick="openTemplate('template3')">
+        <img src="/IMAGES/template3.jpeg" alt="Template 6">
+    </div>
+
+</div>
+
+        </main>
+
+    </div>
+
+    <script>
+        fetch('/get-user-name')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('welcomeUser').innerText = `Welcome, ${data.name}`;
+          })
+          .catch(() => {
+            document.getElementById('welcomeUser').innerText = 'Welcome, User';
+          });
+
+        function openTemplate(templateName) {
+            window.location.href = `/resume-form?template=${templateName}`;
+        }
+
+   
+    </script>
+
+</body>
+</html>

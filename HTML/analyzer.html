@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+
+    <link rel="stylesheet" href="/CSS/analyzer.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="builder-container">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img src="/IMAGES/resumelogo.png" alt="Logo">
+            </div>
+
+            <ul class="sidebar-menu">
+                <li onclick="window.location.href='/builder'">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Build Resume</span>
+                </li>
+
+                <li class="active">
+                    <i class="fa-solid fa-upload"></i>
+                    <span>Analyze Resume</span>
+                </li>
+
+                <li onclick="window.location.href='/jobmatch'">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Job Match</span>
+                </li>
+
+                <li onclick="window.location.href='/logout'">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </li>
+
+                <li onclick="window.location.href='/setting'">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+
+                <li onclick="window.location.href='/'">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back</span>
+                </li>
+            </ul>
+
+        </aside>
+
+        <main class="main-content">
+
+            <div class="top-bar">
+                <div class="user-info">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="welcomeUser">Welcome, User</span>
+                </div>
+            </div>
+
+            <div class="content-header">
+                <h1>Upload Your Resume for ATS Analysis</h1>
+                <p>Upload your resume and get smart analysis, score insights, and improvement suggestions.</p>
+            </div>
+
+            <div class="upload-wrapper">
+
+                <div class="upload-container">
+
+                    <div class="upload-icon-box">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    </div>
+
+                    <h3>Upload Your Resume</h3>
+
+                    <p>
+                        Supported formats: PDF, DOCX
+                    </p>
+
+                    <div class="file-input-box">
+                        <input type="file" id="resumeFile" accept=".pdf,.doc,.docx">
+                        <p id="fileMessage" class="file-message"></p>
+                    </div>
+
+                    <button class="analyze-btn">
+                        Analyze Resume
+                    </button>
+
+                    <div id="resultBox"></div>
+
+                </div>
+
+                <div class="info-panel">
+                    <h2>What You’ll Get</h2>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div>
+                            <h4>ATS Score</h4>
+                            <p>Understand how well your resume matches ATS expectations.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <div>
+                            <h4>Improvement Tips</h4>
+                            <p>Get suggestions to improve structure, formatting, and content.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-list-check"></i>
+                        <div>
+                            <h4>Skill Suggestions</h4>
+                            <p>Find missing or useful skills that can strengthen your resume.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+    fetch('/get-user-name')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('welcomeUser').innerText = `Welcome, ${data.name}`;
+      })
+      .catch(() => {
+        document.getElementById('welcomeUser').innerText = 'Welcome, User';
+      });
+
+    const resumeFile = document.getElementById("resumeFile");
+    const fileMessage = document.getElementById("fileMessage");
+    const analyzeBtn = document.querySelector(".analyze-btn");
+    const resultBox = document.getElementById("resultBox");
+
+    resumeFile.addEventListener("change", function () {
+        const file = this.files[0];
+
+        if (!file) {
+            fileMessage.innerText = "";
+            resultBox.innerHTML = "";
+            return;
+        }
+
+        const allowedExtensions = ["pdf", "doc", "docx"];
+        const fileExt = file.name.split('.').pop().toLowerCase();
+
+        if (!allowedExtensions.includes(fileExt)) {
+            fileMessage.innerText = "Only PDF, DOC, and DOCX files are allowed.";
+            fileMessage.style.color = "red";
+            this.value = "";
+            return;
+        }
+
+        fileMessage.innerText = "Valid file selected.";
+        fileMessage.style.color = "green";
+        resultBox.innerHTML = "";
+    });
+
+    analyzeBtn.addEventListener("click", function () {
+        const file = resumeFile.files[0];
+
+        if (!file) {
+            resultBox.innerHTML = `
+                <div class="result-card error">
+                    <h3>❌ No File Selected</h3>
+                    <div class="result-content">Please select a file first.</div>
+                </div>
+            `;
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        resultBox.innerHTML = `
+            <div class="result-card loading">
+                <h3>⏳ Checking Resume</h3>
+                <div class="result-content">Please wait while your resume is being validated and analyzed.</div>
+            </div>
+        `;
+
+        fetch("/upload-resume", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            resultBox.innerHTML = data;
+        })
+        .catch(() => {
+            resultBox.innerHTML = `
+                <div class="result-card error">
+                    <h3>❌ Upload Failed</h3>
+                    <div class="result-content">Something went wrong while uploading the file.</div>
+                </div>
+            `;
+        });
+    });
+    </script>
+
+</body>
+</html>

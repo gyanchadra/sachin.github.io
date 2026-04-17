@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | AI Resume Analyzer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Poppins", sans-serif;
+    }
+
+    body{
+      background: linear-gradient(to right, #eef4ff, #f8fbff);
+      color:#222;
+    }
+
+    .back-btn{
+      position:absolute;
+      top:20px;
+      left:20px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      cursor:pointer;
+      color:#222;
+      font-size:16px;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .back-btn:hover{
+      color:#0d6efd;
+    }
+
+    .page-wrapper{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:80px 20px 40px;
+    }
+
+    .contact-container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+
+    .contact-info,
+    .contact-form-box{
+      background:#fff;
+      border-radius:18px;
+      padding:32px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      border:1px solid #e9eef7;
+    }
+
+    .contact-info h1,
+    .contact-form-box h2{
+      font-size:30px;
+      margin-bottom:12px;
+      color:#111827;
+    }
+
+    .contact-info p,
+    .contact-form-box p{
+      color:#6b7280;
+      font-size:15px;
+      margin-bottom:22px;
+      line-height:1.7;
+    }
+
+    .info-card{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      background:#f7faff;
+      border-radius:14px;
+      padding:16px;
+      margin-bottom:16px;
+    }
+
+    .info-card i{
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#eaf2ff;
+      color:#0d6efd;
+      font-size:18px;
+      flex-shrink:0;
+    }
+
+    .info-card h3{
+      font-size:17px;
+      margin-bottom:4px;
+      color:#111827;
+    }
+
+    .info-card span{
+      font-size:14px;
+      color:#6b7280;
+      display:block;
+    }
+
+    .social-title{
+      margin:24px 0 12px;
+      font-size:18px;
+      font-weight:600;
+      color:#111827;
+    }
+
+    .social-icons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .social-icons a{
+      width:48px;
+      height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      text-decoration:none;
+      background:#eaf2ff;
+      color:#0d6efd;
+      font-size:20px;
+      transition:0.3s;
+    }
+
+    .social-icons a:hover{
+      background:#0d6efd;
+      color:#fff;
+      transform:translateY(-3px);
+    }
+
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    .form-group label{
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:8px;
+      color:#374151;
+    }
+
+    .form-group input,
+    .form-group textarea{
+      width:100%;
+      border:none;
+      outline:none;
+      background:#f3f6fb;
+      border-radius:12px;
+      padding:14px 15px;
+      font-size:15px;
+      color:#222;
+    }
+
+    .form-group textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .submit-btn{
+      width:100%;
+      border:none;
+      border-radius:12px;
+      background:#0d6efd;
+      color:#fff;
+      font-size:16px;
+      font-weight:600;
+      padding:14px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .submit-btn:hover{
+      background:#0b5ed7;
+    }
+
+    .form-note{
+      margin-top:10px;
+      font-size:13px;
+      color:#6b7280;
+      text-align:center;
+    }
+
+    @media(max-width:900px){
+      .contact-container{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:480px){
+      .back-btn{
+        top:14px;
+        left:14px;
+        font-size:14px;
+      }
+
+      .contact-info,
+      .contact-form-box{
+        padding:22px 16px;
+      }
+
+      .contact-info h1,
+      .contact-form-box h2{
+        font-size:25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>Back</span>
+  </a>
+
+  <div class="page-wrapper">
+    <div class="contact-container">
+
+      <div class="contact-info">
+        <h1>Contact Us</h1>
+        <p>
+          If you have any questions, suggestions, support requests, or feedback,
+          you can connect with us through the details below.
+        </p>
+
+        <div class="info-card">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h3>Email Support</h3>
+            <span>airesumeanalyzer@email.com</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h3>Customer Care</h3>
+            <span>+91 9876543210</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <i class="fa-solid fa-headset"></i>
+          <div>
+            <h3>Support</h3>
+            <span>Technical help, feedback, and website related support</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h3>Location</h3>
+            <span>India</span>
+          </div>
+        </div>
+
+        <div class="social-title">Follow Us</div>
+
+        <div class="social-icons">
+          <a href="#" title="Google"><i class="fa-brands fa-google"></i></a>
+          <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="contact-form-box">
+        <h2>Feedback Form</h2>
+        <p>
+          Share your message, feedback, or issue with us. We value your response.
+        </p>
+
+        <form>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Enter subject">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" placeholder="Write your feedback or query here" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+          <p class="form-note">This is a professional frontend contact form UI.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

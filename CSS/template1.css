@@ -1,0 +1,75 @@
+.template1 {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background: #ffffff;
+}
+
+/* LEFT SIDE */
+.template1 .resume-left {
+    background: #f1f5f9;
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+    background: #111;
+    color: #00c853;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-weight: bold;
+}
+
+.template1 .resume-left h2 {
+    color: #00c853;
+    margin-bottom: 10px;
+}
+
+.template1 .resume-left p {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+/* RIGHT SIDE */
+.template1 .resume-right {
+    padding: 20px;
+}
+
+.template1 .resume-block h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.template1 .resume-block p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* BULLET */
+.template1 ul {
+    padding-left: 18px;
+}
+
+/* LANGUAGE BOX */
+.template1 .chip {
+    border: 1px solid #00c853;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .template1 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login & Register</title>
+
+<link rel="stylesheet" href="/CSS/login.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="back-btn" onclick="goBack()">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>Back</span>
+</div>
+
+<div class="container">
+
+    <!-- LOGIN FORM -->
+    <div class="form-box active" id="login-form">
+        <form action="/login" method="POST" autocomplete="off">
+            <h2>Login</h2>
+
+            <p class="form-message success-message" id="login-success-message"></p>
+            <p class="form-message error-message" id="login-error-message"></p>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                autocomplete="off"
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                minlength="6"
+                autocomplete="new-password"
+            >
+
+            <button type="submit">Login</button>
+
+            <p>
+                Don't have an account?
+                <a href="#" onclick="showForm('register-form'); return false;">
+                    Register
+                </a>
+            </p>
+        </form>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="form-box" id="register-form">
+        <form action="/register" method="POST" autocomplete="off" onsubmit="return validateRegisterForm()">
+            <h2>Create Account</h2>
+
+            <p class="form-message error-message" id="register-error-message"></p>
+
+            <input
+                type="text"
+                name="name"
+                id="register-name"
+                placeholder="Full Name"
+                required
+                minlength="3"
+                autocomplete="off"
+            >
+
+            <input
+                type="email"
+                name="email"
+                id="register-email"
+                placeholder="Email"
+                required
+                autocomplete="off"
+            >
+
+            <input
+                type="password"
+                name="password"
+                id="register-password"
+                placeholder="Password"
+                required
+                minlength="6"
+                autocomplete="new-password"
+            >
+
+            <input
+                type="password"
+                id="confirm-password"
+                placeholder="Confirm Password"
+                required
+                minlength="6"
+                autocomplete="new-password"
+            >
+
+            <button type="submit">Register</button>
+
+            <p>
+                Already have an account?
+                <a href="#" onclick="showForm('login-form'); return false;">
+                    Login
+                </a>
+            </p>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function showForm(formId) {
+    let forms = document.querySelectorAll(".form-box");
+
+    forms.forEach(function(form) {
+        form.classList.remove("active");
+    });
+
+    document.getElementById(formId).classList.add("active");
+
+    clearMessages();
+    clearInputs();
+}
+
+function goBack() {
+    window.history.back();
+}
+
+function clearInputs() {
+    document.querySelectorAll("input").forEach(function(input) {
+        input.value = "";
+    });
+}
+
+function clearMessages() {
+    document.getElementById("login-success-message").innerText = "";
+    document.getElementById("login-error-message").innerText = "";
+    document.getElementById("register-error-message").innerText = "";
+}
+
+window.onload = function () {
+    clearInputs();
+    clearMessages();
+
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+    const success = params.get("success");
+
+    if (error === "invalid") {
+        showForm("login-form");
+        document.getElementById("login-error-message").innerText =
+            "Invalid email or password.";
+    }
+
+    if (error === "exists") {
+        showForm("register-form");
+        document.getElementById("register-error-message").innerText =
+            "Email already exists. Try another email.";
+    }
+
+    if (success === "registered") {
+        showForm("login-form");
+        document.getElementById("login-success-message").innerText =
+            "Registration successful. Please login.";
+    }
+};
+
+function validateRegisterForm() {
+    const name = document.getElementById("register-name").value.trim();
+    const email = document.getElementById("register-email").value.trim();
+    const password = document.getElementById("register-password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    const errorMessage = document.getElementById("register-error-message");
+
+    errorMessage.innerText = "";
+
+    if (name.length < 3) {
+        errorMessage.innerText = "Name must be at least 3 characters.";
+        return false;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        errorMessage.innerText = "Enter a valid email address.";
+        return false;
+    }
+
+    if (password.length < 6) {
+        errorMessage.innerText = "Password must be at least 6 characters.";
+        return false;
+    }
+
+    if (password !== confirmPassword) {
+        errorMessage.innerText = "Passwords do not match.";
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>

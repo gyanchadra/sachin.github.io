@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Form</title>
+
+    <link rel="stylesheet" href="/CSS/resumeform.css">
+    <link rel="stylesheet" href="/CSS/template1.css" id="templateCss">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- LEFT FORM SIDE -->
+    <div class="form-section">
+
+        <div class="top-actions">
+            <a href="/builder" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </a>
+
+            <button class="download-btn" onclick="downloadResume()">
+                <i class="fa-solid fa-download"></i>
+                Download PDF
+            </button>
+        </div>
+
+        <div class="form-card">
+            <h1>Build Your Resume</h1>
+            <p class="sub-text">Fill your details and preview your resume live.</p>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+                <label>Job Title</label>
+                <input type="text" id="jobTitle" placeholder="e.g. Frontend Developer">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter email">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" id="phone" placeholder="Enter phone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" id="address" placeholder="Enter address">
+            </div>
+
+            <div class="form-group">
+                <label>Objective</label>
+                <textarea id="objective" placeholder="Write your career objective"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Skills (comma separated)</label>
+                <textarea id="skills" placeholder="e.g. HTML, CSS, JavaScript, React"></textarea>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="form-block">
+                <h2>Education</h2>
+
+                <div class="education-item fixed-edu">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Level</label>
+                            <select class="edu-level">
+                                <option value="10th">10th</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Passout Year</label>
+                            <select class="edu-year">
+                                <option value="">Select Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>School Name</label>
+                        <input type="text" class="edu-school" placeholder="Enter school name">
+                    </div>
+                </div>
+
+                <div class="education-item fixed-edu">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Level</label>
+                            <select class="edu-level">
+                                <option value="12th">12th</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Passout Year</label>
+                            <select class="edu-year">
+                                <option value="">Select Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>School Name</label>
+                        <input type="text" class="edu-school" placeholder="Enter school name">
+                    </div>
+                </div>
+
+                <div class="education-item fixed-edu">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Higher Study</label>
+                            <select class="edu-level">
+                                <option value="Graduation">Graduation</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="Post Graduation">Post Graduation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Passout Year</label>
+                            <select class="edu-year">
+                                <option value="">Select Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>College Name</label>
+                        <input type="text" class="edu-school" placeholder="Enter college name">
+                    </div>
+                </div>
+
+                <div id="extraEducationContainer"></div>
+
+                <button type="button" class="add-btn" onclick="addEducationField()">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Education
+                </button>
+            </div>
+
+            <div class="form-group">
+                <label>Projects (one per line)</label>
+                <textarea id="projects" placeholder="e.g.&#10;AI Resume Analyzer - Built with HTML, CSS, JS, Flask&#10;Portfolio Website - Responsive personal website"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Internship (one per line)</label>
+                <textarea id="internship" placeholder="Write internship details line by line"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Experience (one per line)</label>
+                <textarea id="experience" placeholder="Write experience details line by line"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Languages (comma separated)</label>
+                <textarea id="languages" placeholder="e.g. Hindi, English"></textarea>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- RIGHT PREVIEW SIDE -->
+    <div class="preview-section">
+
+        <div class="preview-top">
+            <div class="user-info">
+                <i class="fa-solid fa-user"></i>
+                <span id="welcomeUser">Welcome, User</span>
+            </div>
+        </div>
+
+        <div class="resume-preview template1" id="resumePreview">
+
+            <!-- TEMPLATE-FRIENDLY HEADER -->
+            <div class="t-header">
+                <div class="t-avatar" id="previewAvatar">A</div>
+
+                <div class="t-header-main">
+                    <h1 id="previewName">Your Name</h1>
+                    <h3 id="previewJobTitle">Job Title</h3>
+
+                    <p class="contact-line">
+                        <span id="previewEmail">your@email.com</span>
+                        <span class="sep">|</span>
+                        <span id="previewPhone">+91 0000000000</span>
+                        <span class="sep">|</span>
+                        <span id="previewAddress">Your Address</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="t-layout">
+
+                <!-- LEFT COLUMN -->
+                <aside class="t-left">
+
+                    <div class="resume-block left-contact-block">
+                        <p id="leftEmail">your@email.com</p>
+                        <p id="leftPhone">+91 0000000000</p>
+                        <p id="leftAddress">Your Address</p>
+                    </div>
+
+                    <div class="resume-block" id="skillsBlock">
+                        <h2>Skills</h2>
+                        <div id="previewSkills" class="skill-list-text">
+                            Your skills will appear here.
+                        </div>
+                    </div>
+
+                    <div class="resume-block" id="educationBlock">
+                        <h2>Education and Training</h2>
+                        <div id="previewEducation" class="edu-list-text">
+                            Your education details will appear here.
+                        </div>
+                    </div>
+
+                    <div class="resume-block" id="languagesBlock">
+                        <h2>Languages</h2>
+                        <div id="previewLanguages" class="language-list-text">
+                            Your languages will appear here.
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- RIGHT COLUMN -->
+                <section class="t-right">
+
+                    <div class="resume-block" id="objectiveBlock">
+                        <h2>Summary</h2>
+                        <p id="previewObjective">Your objective will appear here.</p>
+                    </div>
+
+                    <div class="resume-block" id="experienceBlock">
+                        <h2>Experience</h2>
+                        <div id="previewExperience" class="exp-text">
+                            Your experience details will appear here.
+                        </div>
+                    </div>
+
+                    <div class="resume-block" id="projectsBlock">
+                        <h2>Projects</h2>
+                        <div id="previewProjects" class="project-list-text">
+                            Your projects will appear here.
+                        </div>
+                    </div>
+
+                    <div class="resume-block" id="internshipBlock">
+                        <h2>Internship</h2>
+                        <div id="previewInternship" class="internship-list-text">
+                            Your internship details will appear here.
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // USER NAME
+    fetch('/get-user-name')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('welcomeUser').innerText = `Welcome, ${data.name}`;
+      })
+      .catch(() => {
+        document.getElementById('welcomeUser').innerText = 'Welcome, User';
+      });
+
+    // INPUTS
+    const fullName = document.getElementById("fullName");
+    const jobTitle = document.getElementById("jobTitle");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const address = document.getElementById("address");
+    const objective = document.getElementById("objective");
+    const skills = document.getElementById("skills");
+    const projects = document.getElementById("projects");
+    const internship = document.getElementById("internship");
+    const experience = document.getElementById("experience");
+    const languages = document.getElementById("languages");
+
+    // PREVIEW ELEMENTS
+    const previewName = document.getElementById("previewName");
+    const previewJobTitle = document.getElementById("previewJobTitle");
+    const previewEmail = document.getElementById("previewEmail");
+    const previewPhone = document.getElementById("previewPhone");
+    const previewAddress = document.getElementById("previewAddress");
+    const previewObjective = document.getElementById("previewObjective");
+    const previewSkills = document.getElementById("previewSkills");
+    const previewEducation = document.getElementById("previewEducation");
+    const previewProjects = document.getElementById("previewProjects");
+    const previewInternship = document.getElementById("previewInternship");
+    const previewExperience = document.getElementById("previewExperience");
+    const previewLanguages = document.getElementById("previewLanguages");
+
+    const leftEmail = document.getElementById("leftEmail");
+    const leftPhone = document.getElementById("leftPhone");
+    const leftAddress = document.getElementById("leftAddress");
+    const previewAvatar = document.getElementById("previewAvatar");
+
+    // BLOCKS
+    const objectiveBlock = document.getElementById("objectiveBlock");
+    const skillsBlock = document.getElementById("skillsBlock");
+    const educationBlock = document.getElementById("educationBlock");
+    const projectsBlock = document.getElementById("projectsBlock");
+    const internshipBlock = document.getElementById("internshipBlock");
+    const experienceBlock = document.getElementById("experienceBlock");
+    const languagesBlock = document.getElementById("languagesBlock");
+
+    function bindLiveUpdate(input, preview, defaultText, block) {
+        input.addEventListener("input", function () {
+            const value = input.value.trim();
+            preview.innerText = value || defaultText;
+            if (block) {
+                block.style.display = value ? "block" : "none";
+            }
+        });
+    }
+
+    bindLiveUpdate(jobTitle, previewJobTitle, "Job Title");
+
+    // NAME + AVATAR
+    fullName.addEventListener("input", function () {
+        const value = fullName.value.trim();
+        previewName.innerText = value || "Your Name";
+        previewAvatar.innerText = value ? value.charAt(0).toUpperCase() : "A";
+    });
+
+    // CONTACT SYNC
+    email.addEventListener("input", function () {
+        const value = email.value.trim() || "your@email.com";
+        previewEmail.innerText = value;
+        leftEmail.innerText = value;
+    });
+
+    phone.addEventListener("input", function () {
+        const value = phone.value.trim() || "+91 0000000000";
+        previewPhone.innerText = value;
+        leftPhone.innerText = value;
+    });
+
+    address.addEventListener("input", function () {
+        const value = address.value.trim() || "Your Address";
+        previewAddress.innerText = value;
+        leftAddress.innerText = value;
+    });
+
+    // OBJECTIVE
+    objective.addEventListener("input", function () {
+        const value = objective.value.trim();
+        previewObjective.innerText = value || "Your objective will appear here.";
+        objectiveBlock.style.display = value ? "block" : "none";
+    });
+
+    // SKILLS
+    function updateSkillsText() {
+        const value = skills.value.trim();
+
+        if (!value) {
+            previewSkills.innerHTML = "Your skills will appear here.";
+            skillsBlock.style.display = "none";
+            return;
+        }
+
+        const items = value.split(",").map(item => item.trim()).filter(Boolean);
+
+        previewSkills.innerHTML = `
+            <ul>
+                ${items.map(item => `<li>${item}</li>`).join("")}
+            </ul>
+        `;
+
+        skillsBlock.style.display = items.length ? "block" : "none";
+    }
+
+    skills.addEventListener("input", updateSkillsText);
+
+    // GENERIC TEXT BLOCK
+    function updateTextBlock(input, preview, block, emptyText) {
+        const value = input.value.trim();
+
+        if (!value) {
+            preview.innerHTML = emptyText;
+            block.style.display = "none";
+            return;
+        }
+
+        const items = value
+            .split("\n")
+            .map(item => item.trim())
+            .filter(Boolean);
+
+        preview.innerHTML = items.map(item => `<div class="text-line">${item}</div>`).join("");
+        block.style.display = items.length ? "block" : "none";
+    }
+
+    projects.addEventListener("input", function () {
+        updateTextBlock(projects, previewProjects, projectsBlock, "Your projects will appear here.");
+    });
+
+    internship.addEventListener("input", function () {
+        updateTextBlock(internship, previewInternship, internshipBlock, "Your internship details will appear here.");
+    });
+
+    experience.addEventListener("input", function () {
+        updateTextBlock(experience, previewExperience, experienceBlock, "Your experience details will appear here.");
+    });
+
+    // LANGUAGES
+    function updateLanguagesText() {
+        const value = languages.value.trim();
+
+        if (!value) {
+            previewLanguages.innerHTML = "Your languages will appear here.";
+            languagesBlock.style.display = "none";
+            return;
+        }
+
+        const items = value.split(",").map(item => item.trim()).filter(Boolean);
+
+        previewLanguages.innerHTML = items.map(item => `
+            <div class="language-row">
+                <span>${item}</span>
+            </div>
+        `).join("");
+
+        languagesBlock.style.display = items.length ? "block" : "none";
+    }
+
+    languages.addEventListener("input", updateLanguagesText);
+
+    // YEAR OPTIONS
+    function fillYearOptions(select) {
+        const currentYear = new Date().getFullYear();
+        for (let year = currentYear; year >= 1980; year--) {
+            const option = document.createElement("option");
+            option.value = year;
+            option.textContent = year;
+            select.appendChild(option);
+        }
+    }
+
+    document.querySelectorAll(".edu-year").forEach(select => fillYearOptions(select));
+
+    // EDUCATION
+    function updateEducationPreview() {
+        const educationItems = document.querySelectorAll(".education-item");
+        let html = "";
+
+        educationItems.forEach(item => {
+            const level = item.querySelector(".edu-level")?.value.trim() || "";
+            const year = item.querySelector(".edu-year")?.value.trim() || "";
+            const school = item.querySelector(".edu-school")?.value.trim() || "";
+
+            if (level || school || year) {
+                html += `
+                    <div class="edu-entry">
+                        ${year ? `<div class="edu-year-line">${year}</div>` : ""}
+                        ${school ? `<div class="edu-school-line">${school}</div>` : ""}
+                        ${level ? `<div class="edu-level-line">${level}</div>` : ""}
+                    </div>
+                `;
+            }
+        });
+
+        if (!html) {
+            previewEducation.innerHTML = "Your education details will appear here.";
+            educationBlock.style.display = "none";
+        } else {
+            previewEducation.innerHTML = html;
+            educationBlock.style.display = "block";
+        }
+    }
+
+    function attachEducationListeners(container) {
+        container.querySelectorAll(".edu-level, .edu-year, .edu-school").forEach(field => {
+            field.addEventListener("input", updateEducationPreview);
+            field.addEventListener("change", updateEducationPreview);
+        });
+    }
+
+    attachEducationListeners(document);
+
+    function addEducationField() {
+        const container = document.getElementById("extraEducationContainer");
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "education-item extra-edu";
+        wrapper.innerHTML = `
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Higher Study</label>
+                    <select class="edu-level">
+                        <option value="">Select Level</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Post Graduation">Post Graduation</option>
+                        <option value="Certification">Certification</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Passout Year</label>
+                    <select class="edu-year">
+                        <option value="">Select Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Institute / College Name</label>
+                <input type="text" class="edu-school" placeholder="Enter institute name">
+            </div>
+        `;
+
+        container.appendChild(wrapper);
+        fillYearOptions(wrapper.querySelector(".edu-year"));
+        attachEducationListeners(wrapper);
+        updateEducationPreview();
+    }
+
+    // TEMPLATE SWITCH
+    const params = new URLSearchParams(window.location.search);
+    const template = params.get("template") || "template1";
+
+    document.getElementById("templateCss").href = `/CSS/${template}.css`;
+
+    const preview = document.getElementById("resumePreview");
+    preview.classList.remove("template1", "template2", "template3");
+    preview.classList.add(template);
+
+    // PDF DOWNLOAD
+    function downloadResume() {
+        const element = document.getElementById("resumePreview");
+
+        const opt = {
+            margin: 0.2,
+            filename: 'resume.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save();
+    }
+
+    // INITIAL HIDE
+    objectiveBlock.style.display = "none";
+    skillsBlock.style.display = "none";
+    educationBlock.style.display = "none";
+    projectsBlock.style.display = "none";
+    internshipBlock.style.display = "none";
+    experienceBlock.style.display = "none";
+    languagesBlock.style.display = "none";
+</script>
+
+</body>
+</html>

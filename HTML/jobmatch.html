@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Match</title>
+
+    <link rel="stylesheet" href="/CSS/jobmatch.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="builder-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <img src="/IMAGES/resumelogo.png" alt="Logo">
+            </div>
+
+            <ul class="sidebar-menu">
+
+                <li onclick="window.location.href='/builder'">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Build Resume</span>
+                </li>
+
+                <li onclick="window.location.href='/analyzer'">
+                    <i class="fa-solid fa-upload"></i>
+                    <span>Analyze Resume</span>
+                </li>
+
+                <li class="active">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Job Match</span>
+                </li>
+
+               <li onclick="window.location.href='/logout'">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <span>Logout</span>
+                 </li>
+
+                <li onclick="window.location.href='/setting'">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+
+                <li onclick="window.location.href='/'">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back</span>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <div class="top-bar">
+                <div class="user-info">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="welcomeUser">Welcome, User</span>
+                </div>
+            </div>
+
+            <div class="content-header">
+                <h1>Find Jobs Matching Your Resume</h1>
+                <p>Search jobs based on your role, skills, and preferred location.</p>
+            </div>
+
+            <div class="job-search-container">
+
+                <div class="input-group">
+                    <label>Job Role</label>
+                    <input type="text" placeholder="e.g. Frontend Developer">
+                </div>
+
+                <div class="input-group">
+                    <label>Skills</label>
+                    <input type="text" placeholder="e.g. HTML, CSS, JavaScript">
+                </div>
+
+                <div class="input-group">
+                    <label>Location</label>
+                    <input type="text" placeholder="e.g. Bhopal">
+                </div>
+
+                <button class="match-btn">Match Jobs</button>
+            </div>
+
+            <div class="results-header">
+                <h2>Suggested Jobs</h2>
+            </div>
+
+            <div class="job-results">
+
+                <div class="job-card">
+                    <h3>Frontend Developer</h3>
+                    <p><strong>Company:</strong> Tech Solutions</p>
+                    <p><strong>Location:</strong> Bhopal</p>
+                    <p><strong>Skills Match:</strong> HTML, CSS, JavaScript</p>
+                    <button>Apply</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Web Developer</h3>
+                    <p><strong>Company:</strong> CodeHub</p>
+                    <p><strong>Location:</strong> Indore</p>
+                    <p><strong>Skills Match:</strong> React, CSS, JavaScript</p>
+                    <button>Apply</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>UI Developer</h3>
+                    <p><strong>Company:</strong> NextGen Apps</p>
+                    <p><strong>Location:</strong> Jabalpur</p>
+                    <p><strong>Skills Match:</strong> HTML, Tailwind, JS</p>
+                    <button>Apply</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Junior Frontend Engineer</h3>
+                    <p><strong>Company:</strong> Smart Byte</p>
+                    <p><strong>Location:</strong> Remote</p>
+                    <p><strong>Skills Match:</strong> HTML, CSS, React</p>
+                    <button>Apply</button>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        fetch('/get-user-name')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('welcomeUser').innerText = `Welcome, ${data.name}`;
+          })
+          .catch(() => {
+            document.getElementById('welcomeUser').innerText = 'Welcome, User';
+          });
+    </script>
+
+</body>
+</html>

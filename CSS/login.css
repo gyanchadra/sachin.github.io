@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    color: #333;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    transition: 0.2s;
+}
+
+.back-btn i {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    color: #7494ec;
+}
+
+.container {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 15px;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    display: none;
+}
+
+.form-box.active {
+    display: block;
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    background: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #7494ec;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 18px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5f7fe0;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+}
+
+p a {
+    color: #7494ec;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.form-message {
+    min-height: 20px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.success-message {
+    color: #198754;
+}
+
+.error-message {
+    color: #dc3545;
+}
+
+@media(max-width:480px) {
+    .form-box {
+        padding: 30px;
+    }
+
+    .back-btn {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,60 @@
+.template3 {
+    padding: 20px;
+    background: #ffffff;
+}
+
+/* HEADER */
+.template3 .resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.template3 .resume-header h1 {
+    font-size: 28px;
+    color: #0d6efd;
+}
+
+.template3 .resume-header h3 {
+    font-size: 16px;
+    color: #555;
+}
+
+/* BLOCK */
+.template3 .resume-block {
+    margin-bottom: 18px;
+}
+
+/* TITLE */
+.template3 .resume-block h2 {
+    font-size: 15px;
+    color: #0d6efd;
+    border-left: 4px solid #0d6efd;
+    padding-left: 10px;
+    margin-bottom: 8px;
+}
+
+/* TEXT */
+.template3 p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* BULLETS */
+.template3 ul {
+    padding-left: 18px;
+}
+
+.template3 li {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+/* SKILLS BOX */
+.template3 .chip {
+    border: 1px solid #0d6efd;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin: 4px;
+    display: inline-block;
+}
